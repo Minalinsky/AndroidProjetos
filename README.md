@@ -17,3 +17,11 @@ Protótipo de interface do feed de uma rede social, trabalhando com RecyclerView
 #### ATM Consultoria
 Nav_Drawer e abertura de aplicativos para envio de email através do item "Contato" no menu ou então do FloatActionButton
 Uso da seguinte biblioteca na criação da página "Sobre", adicionando a dependencia (compile) em build.gradle: https://github.com/medyo/android-about-page
+
+#### Lista de Tarefas
+Bloco de anotações de Tarefas.
+ - Utiliza Banco de Dados (SQLite)
+ - Salva as tarefas
+ - Recuperação e listagem das tarefas armazenadas
+ - Edição/Atualização das tarefas (Toque curto)
+ - Deleção de Tarefas (Toque longo)
