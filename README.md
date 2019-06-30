@@ -1,6 +1,6 @@
 ## Projetos
 
-Esse repositório possui protótipos de projetos de desenvolvimento Android que foram feitos com o propósito de aprendizado individual e fixação de conhecimentos
+Esse repositório possui protótipos e projetos de desenvolvimento Android desenvolvidos com o propósito de aprendizado e fixação de conhecimentos
 
 #### App de Notícias
 Desenvolvimento de uma interface simples para mostrar notícias ao usuário
