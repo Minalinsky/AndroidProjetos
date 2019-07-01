@@ -23,7 +23,7 @@ public class SobreActivity extends AppCompatActivity {
                 .addEmail("consultoria@atm.com")
                 .addGroup("Nossas Redes Sociais")
                 .addWebsite("https://www.linkedin.com/in/alysonmaruyama/", "Acesse nosso LinkedIn")
-                .addGitHub("https://github.com/Minalinsky", "Nosso GitHub")
+                .addGitHub("Minalinsky", "Nosso GitHub")
                 .addFacebook("AlysonMatheus1907", "Facebook")
                 .create();
         setContentView(sobreView);

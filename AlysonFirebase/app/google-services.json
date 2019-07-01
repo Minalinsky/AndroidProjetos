@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "184506456787",
+    "firebase_url": "https://alysonfirebase.firebaseio.com",
+    "project_id": "alysonfirebase",
+    "storage_bucket": "alysonfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184506456787:android:dc0488c122ec9c9c",
+        "android_client_info": {
+          "package_name": "com.example.alysonfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184506456787-r7qjga1nhfh1749d7ecvgc64dgro7ps7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alysonfirebase",
+            "certificate_hash": "71b966faf55dfc686cded2b05d451242538fab22"
+          }
+        },
+        {
+          "client_id": "184506456787-ekmomlo0vslkoiftgvsjpct7jub7hncv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwCIF3Jbn4sb7bUavWTQ-VVQOSVuyEhsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184506456787-ekmomlo0vslkoiftgvsjpct7jub7hncv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

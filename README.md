@@ -15,12 +15,19 @@ Usuário entra com o valor do pagamento e arrasta a seekbar selecionando a quant
 Protótipo de interface do feed de uma rede social, trabalhando com RecyclerView, Adapter e ViewHolder
 
 #### ATM Consultoria
-Nav_Drawer e abertura de aplicativos para envio de email através do item "Contato" no menu ou então do FloatActionButton
+Uso de Nav_Drawer e abertura de aplicativos instalados no Android para envio de email através da seçao "Contato" no menu ou então do FloatActionButton.
+
 Uso da seguinte biblioteca na criação da página "Sobre", adicionando a dependencia (compile) em build.gradle: https://github.com/medyo/android-about-page
+
+#### Cara ou Coroa
+Usuário presisona o botão "Jogar" e é sorteado Cara ou Coroa em uma nova tela.
+ - Passagem de dados entre activities
+ - Ciclo de vida de Activities
+ - Fragments
 
 #### Lista de Tarefas
 Bloco de anotações de Tarefas.
- - Utiliza Banco de Dados (SQLite)
+ - Utiliza Banco de Dados Local(SQLite)
  - Salva as tarefas
  - Recuperação e listagem das tarefas armazenadas
  - Edição/Atualização das tarefas (Toque curto)

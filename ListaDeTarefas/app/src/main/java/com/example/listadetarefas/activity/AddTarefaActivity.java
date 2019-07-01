@@ -50,7 +50,10 @@ public class AddTarefaActivity extends AppCompatActivity {
             case R.id.menu_salvar:
                 if(tarefaSelecionada != null){
                     //Edição de Tarefa
-                    if(!txtAddTarefa.getText().toString().equals("")) {
+                    if(txtAddTarefa.getText().toString().equals("")) {
+                        Toast.makeText(this, "Não deixe a tarefa em branco!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
                         Tarefa novaTarefa = new Tarefa();
                         novaTarefa.setId(tarefaSelecionada.getId());
                         novaTarefa.setDescricao(txtAddTarefa.getText().toString());
