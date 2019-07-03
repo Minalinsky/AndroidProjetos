@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "288468632435",
+    "firebase_url": "https://postagensredesocial.firebaseio.com",
+    "project_id": "postagensredesocial",
+    "storage_bucket": "postagensredesocial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288468632435:android:4cdf7dc56319ec01",
+        "android_client_info": {
+          "package_name": "com.example.postagensredesocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288468632435-jbump2r7l57coji54kpg9h7g7no389lv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.postagensredesocial",
+            "certificate_hash": "71b966faf55dfc686cded2b05d451242538fab22"
+          }
+        },
+        {
+          "client_id": "288468632435-tcao6lff388bt6r7fir8vs20aomfckja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbhU8uvlrwyVcCFXhQYEkdNw-zn0Kq9Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288468632435-tcao6lff388bt6r7fir8vs20aomfckja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

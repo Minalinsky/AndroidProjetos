@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.postagensredesocial.R;
 import com.example.postagensredesocial.model.Postagem;
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +41,15 @@ public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.Holder
 
     @Override
     public void onBindViewHolder(@NonNull HolderPostagem holder, int position) {
-        holder.nome.setText(listaPostagem.get(position).getNome());
-        holder.descricao.setText(listaPostagem.get(position).getDescricao());
-        holder.data.setText("19/07/2019"); //data estática
-        holder.foto.setImageResource(listaPostagem.get(position).getFoto());
+        //Pilha bug?!?
+        int inversePos = listaPostagem.size() - 1;
+        if(inversePos - position >= 0) {
+            //Recebe holder com a view do item do recyclerView
+            holder.nome.setText(listaPostagem.get(inversePos - position).getNome());
+            holder.descricao.setText(listaPostagem.get(inversePos - position).getDescricao());
+            holder.data.setText("19/07/2019"); //data estática
+            UrlImageViewHelper.setUrlDrawable(holder.foto, listaPostagem.get(inversePos - position).getFotourl());
+        }
     }
 
     @Override
@@ -65,7 +71,5 @@ public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.Holder
         }
 
     }
-
-
-
+    
 }

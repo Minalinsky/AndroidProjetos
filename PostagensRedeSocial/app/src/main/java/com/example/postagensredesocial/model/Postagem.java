@@ -2,17 +2,27 @@ package com.example.postagensredesocial.model;
 
 public class Postagem {
     private String nome, descricao;
-    private int foto;
+    private String fotoUrl;
 
+    public Postagem(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     public Postagem(){
 
     }
 
-    public Postagem(String nome, String descricao, int foto) {
+    public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
-        this.foto = foto;
+    }
+
+    public void setFotourl(String fotoUrl) {
+        this.fotoUrl = fotoUrl;
     }
 
     public String getNome(){
@@ -23,7 +33,7 @@ public class Postagem {
         return this.descricao;
     }
 
-    public int getFoto(){
-        return this.foto;
+    public String getFotourl(){
+        return this.fotoUrl;
     }
 }
