@@ -42,13 +42,14 @@ public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.Holder
     @Override
     public void onBindViewHolder(@NonNull HolderPostagem holder, int position) {
         //Pilha bug?!?
-        int inversePos = listaPostagem.size() - 1;
+        int inversePos = listaPostagem.size() - position - 1;
         if(inversePos - position >= 0) {
             //Recebe holder com a view do item do recyclerView
-            holder.nome.setText(listaPostagem.get(inversePos - position).getNome());
-            holder.descricao.setText(listaPostagem.get(inversePos - position).getDescricao());
+            holder.nome.setText(listaPostagem.get(inversePos).getNome());
+            holder.descricao.setText(listaPostagem.get(inversePos).getDescricao());
             holder.data.setText("19/07/2019"); //data estática
-            UrlImageViewHelper.setUrlDrawable(holder.foto, listaPostagem.get(inversePos - position).getFotourl());
+
+                UrlImageViewHelper.setUrlDrawable(holder.foto, listaPostagem.get(inversePos).getFotourl());
         }
     }
 
@@ -71,5 +72,5 @@ public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.Holder
         }
 
     }
-    
+
 }

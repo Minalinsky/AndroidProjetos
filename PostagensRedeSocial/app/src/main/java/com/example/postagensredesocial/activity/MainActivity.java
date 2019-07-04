@@ -5,11 +5,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,17 +18,19 @@ import com.example.postagensredesocial.adapter.AdapterPostagem;
 import com.example.postagensredesocial.helper.DBHelper;
 import com.example.postagensredesocial.model.Postagem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 234; //requestCode
 
     private RecyclerView rv;
+    private LinearLayout linearLayout;
+    private TextInputEditText txtInputPost;
     private ArrayList<Postagem> listaPostagens = new ArrayList<Postagem>();
     private FloatingActionButton fab;
     private DBHelper db;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         rv = findViewById(R.id.recyclerView);
         fab = findViewById(R.id.myFabButton);
+        linearLayout = findViewById(R.id.inputLayout);
+        txtInputPost = findViewById(R.id.txtInputPost);
 
         //Definindo layout para o RecyclerView
         //inner class
@@ -51,7 +55,24 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selecionaFotos();
+                int linearLayoutVisibility = linearLayout.getVisibility();
+                String mensagem = txtInputPost.getText().toString();
+
+                if(linearLayoutVisibility == View.GONE ){
+                    //torna input field visível e troca ícone do FAB
+                    linearLayout.setVisibility(View.VISIBLE);
+                    fab.setImageResource(R.drawable.ic_send_post);
+
+                }else if(linearLayoutVisibility == View.VISIBLE && mensagem.equals("")){
+                    linearLayout.setVisibility(View.GONE);
+                    fab.setImageResource(R.drawable.ic_fab);
+                }
+                else if(linearLayoutVisibility == View.VISIBLE){
+                    //abre galeria de fotos para upload
+                    selecionaFotos();
+                    linearLayout.setVisibility(View.GONE);
+                    fab.setImageResource(R.drawable.ic_fab);
+                }
             }
         });
 
@@ -71,18 +92,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 234 && resultCode == RESULT_OK && data != null){ //o código de PICK_IMAGE_REQUEST definimos
+        if(resultCode == RESULT_OK && data != null) {
             Uri filePath = data.getData();
-            Postagem p = montaPostSemFoto();
-            db.escrevePostagem(p, filePath);
+            switch (requestCode) { //o código de PICK_IMAGE_REQUEST definimos
+                case 234:
+                    String nome = "Quik19"; //TROCAR NOME USUARIO LOGIN
+                    String descricao = txtInputPost.getText().toString();
+                    Postagem p = montaPostSemFoto(nome, descricao);
+                    db.escrevePostagem(p, filePath);
+                    break;
+            }
         }
 
     }
 
-    public Postagem montaPostSemFoto(){ //deverá pegar as entradas da interface
+    public Postagem montaPostSemFoto(String nome, String descricao){ //pega as entradas da interface
         Postagem p = new Postagem();
-        p.setDescricao("I'm just a memer I meme all day");
-        p.setNome("NO WOWLRLD OADONT KNOW");
+        p.setNome(nome);
+        p.setDescricao(descricao);
         return p;
     }
 

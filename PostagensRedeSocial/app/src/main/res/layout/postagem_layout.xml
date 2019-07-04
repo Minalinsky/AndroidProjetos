@@ -36,10 +36,10 @@
                 android:id="@+id/imgPostagem"
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/landscape" />
+                android:layout_marginBottom="10dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/dog" />
 
             <TextView
                 android:id="@+id/txtDescricao"
