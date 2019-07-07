@@ -38,14 +38,12 @@
                 android:layout_height="230dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/dog" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/txtDescricao"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Awesome View!! #Sunset" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout

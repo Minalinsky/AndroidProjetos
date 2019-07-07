@@ -51,7 +51,7 @@ public class DBHelper{ //classe que gerencia o DB.
     }
 
     //upload do post no Storage --> coloca a URL de download em fotoDownloadURL
-    //rece Postagem sem foto -->  faz o upload da foto no Storage, coloca url na Postagem e faz upload dela no DB
+    //recebe Postagem sem foto -->  faz o upload da foto no Storage, coloca url na Postagem e faz upload dela no DB
     public void escrevePostagem(Postagem p, Uri fotoPath){
         //postagem que será uploadada
         final Postagem post = p;
@@ -64,6 +64,7 @@ public class DBHelper{ //classe que gerencia o DB.
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
+çç
                         Log.i ("AVISO", "Sucesso no Upload");
 
                         //Listener para recuperar URL de download

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText txtInputPost;
     private ArrayList<Postagem> listaPostagens = new ArrayList<Postagem>();
     private FloatingActionButton fab;
+    private ProgressBar progressBar;
     private DBHelper db;
 
     @Override
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         rv = findViewById(R.id.recyclerView);
         fab = findViewById(R.id.myFabButton);
+        progressBar = findViewById(R.id.progressBar);
         linearLayout = findViewById(R.id.inputLayout);
         txtInputPost = findViewById(R.id.txtInputPost);
 
@@ -57,27 +60,31 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int linearLayoutVisibility = linearLayout.getVisibility();
                 String mensagem = txtInputPost.getText().toString();
-
+                //se o fab foi clicado pela primeira vez
                 if(linearLayoutVisibility == View.GONE ){
                     //torna input field visível e troca ícone do FAB
                     linearLayout.setVisibility(View.VISIBLE);
                     fab.setImageResource(R.drawable.ic_send_post);
-
+                //se é clicado sem ter digitado nada, fecha o InputTxt
                 }else if(linearLayoutVisibility == View.VISIBLE && mensagem.equals("")){
                     linearLayout.setVisibility(View.GONE);
                     fab.setImageResource(R.drawable.ic_fab);
-                }
+                }//se clicou no fab para enviar e tem algo digitado
                 else if(linearLayoutVisibility == View.VISIBLE){
                     //abre galeria de fotos para upload
                     selecionaFotos();
                     linearLayout.setVisibility(View.GONE);
                     fab.setImageResource(R.drawable.ic_fab);
+                    limpaTxtInput();
                 }
             }
         });
 
         //lista postagens
         this.prepararPostagens();
+    }
+    public void limpaTxtInput(){
+        txtInputPost.setText("");
     }
 
     //abre a galeria de fotos para o usuario selecionar
@@ -99,7 +106,9 @@ public class MainActivity extends AppCompatActivity {
                     String nome = "Quik19"; //TROCAR NOME USUARIO LOGIN
                     String descricao = txtInputPost.getText().toString();
                     Postagem p = montaPostSemFoto(nome, descricao);
+                    //progressBar.setVisibility(View.VISIBLE);
                     db.escrevePostagem(p, filePath);
+                    //progressBar.setVisibility(View.GONE);
                     break;
             }
         }
@@ -133,4 +142,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-}
+
+
+    public void mostraProgresso(){
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void ocultaProgresso(){
+        progressBar.setVisibility(View.GONE);
+    }

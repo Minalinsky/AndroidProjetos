@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:forceDarkAllowed="false"
+        android:indeterminate="false"
+        android:max="100"
+        android:scrollbarStyle="insideInset"
+        android:verticalScrollbarPosition="defaultPosition"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/myFabButton"
         android:layout_width="wrap_content"
@@ -39,11 +59,11 @@
     <LinearLayout
         android:id="@+id/inputLayout"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:background="?attr/colorButtonNormal"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/myFabButton"
         app:layout_constraintEnd_toStartOf="@+id/myFabButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +78,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="No que você está pensando...?"
-                android:padding="6dp" />
+                android:padding="6dp"
+                android:visibility="visible" />
         </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
