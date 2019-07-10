@@ -64,7 +64,6 @@ public class DBHelper{ //classe que gerencia o DB.
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
-çç
                         Log.i ("AVISO", "Sucesso no Upload");
 
                         //Listener para recuperar URL de download

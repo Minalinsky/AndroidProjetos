@@ -22,10 +22,9 @@
  - Uso da seguinte biblioteca na criação da página "Sobre", adicionando a dependencia (compile) em build.gradle: https://github.com/medyo/android-about-page
 
 #### Cara ou Coroa
-Usuário presisona o botão "Jogar" e é sorteado Cara ou Coroa em uma nova tela.
+Usuário pressiona o botão "Jogar" e é sorteado Cara ou Coroa em uma nova tela.
  - Passagem de dados entre activities
  - Ciclo de vida de Activities
- - Fragments
 
 #### Lista de Tarefas
 Bloco de anotações de Tarefas.

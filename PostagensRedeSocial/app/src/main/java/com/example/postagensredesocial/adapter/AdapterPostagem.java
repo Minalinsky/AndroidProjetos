@@ -24,10 +24,10 @@ import java.util.List;
 */
 public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.HolderPostagem> {
 
-    private List<Postagem> listaPostagem = new ArrayList<Postagem>();
+    private ArrayList<Postagem> listaPostagem = new ArrayList<Postagem>();
 
-    public AdapterPostagem(List<Postagem> lp){
-        listaPostagem = lp;
+    public AdapterPostagem(ArrayList<Postagem> lp){
+        this.listaPostagem = lp;
     }
 
     @NonNull
@@ -41,9 +41,9 @@ public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.Holder
 
     @Override
     public void onBindViewHolder(@NonNull HolderPostagem holder, int position) {
-        //Pilha bug?!?
+        //implementar Pilha
         int inversePos = listaPostagem.size() - position - 1;
-        if(inversePos - position >= 0) {
+        if(inversePos >= 0) {
             //Recebe holder com a view do item do recyclerView
             holder.nome.setText(listaPostagem.get(inversePos).getNome());
             holder.descricao.setText(listaPostagem.get(inversePos).getDescricao());
