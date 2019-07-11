@@ -24,8 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 234; //requestCode
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rv;
     private LinearLayout linearLayout;
     private TextInputEditText txtInputPost;
-    private ArrayList<Postagem> listaPostagens = new ArrayList<Postagem>();
+    private Stack<Postagem> listaPostagens = new Stack<Postagem>();
     private FloatingActionButton fab;
     private ProgressBar progressBar;
     private DBHelper db;
@@ -81,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //lista postagens
+        //lista as postagens
         this.prepararPostagens();
     }
 
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 listaPostagens.clear();
                 for (DataSnapshot d : dataSnapshot.getChildren()) {
                     Postagem post = d.getValue(Postagem.class);
-                    listaPostagens.add(post);
+                    listaPostagens.push(post);
                 }
                 Log.i("PostAVISO", "tamanho da lista com todas as postagens DENTRO DE DBHelper.leTodasPostagens(): " + listaPostagens.size());
                 rv.setAdapter(new AdapterPostagem(listaPostagens));

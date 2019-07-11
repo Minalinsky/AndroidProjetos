@@ -13,20 +13,20 @@ import com.example.postagensredesocial.R;
 import com.example.postagensredesocial.model.Postagem;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 /*Dentro de adapter criamos uma classe do tipo ViewHolder, que recebe em seu construtor uma View
-    Essa View é criada a partir de um layout que criamos em xml
+    Essa View é criada a partir de um inflate do layout que criamos em xml
     Esse layout é correspondente a cada elemento da Lista (cardView ou RecyclerView) que será mostrado na tela
 
-    Pegamos o layout > Criamos uma view com esse layout no método onCreateViewHolder, retornando um objeto da classe ViewHolder que criamos.
+    Pegamos o layout > Criamos uma view com esse layout no método onCreateViewHolder, retornando um objeto da classe ViewHolder que criamos > Colocamos o conteúdo a ser mostrado dentro do ViewHolder no método (onBindViewHolder)
+
 */
 public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.HolderPostagem> {
 
-    private ArrayList<Postagem> listaPostagem = new ArrayList<Postagem>();
+    private Stack<Postagem> listaPostagem;
 
-    public AdapterPostagem(ArrayList<Postagem> lp){
+    public AdapterPostagem(Stack<Postagem> lp){
         this.listaPostagem = lp;
     }
 
@@ -41,16 +41,13 @@ public class AdapterPostagem extends RecyclerView.Adapter<AdapterPostagem.Holder
 
     @Override
     public void onBindViewHolder(@NonNull HolderPostagem holder, int position) {
-        //implementar Pilha
-        int inversePos = listaPostagem.size() - position - 1;
-        if(inversePos >= 0) {
+            Postagem p = listaPostagem.get(listaPostagem.size() - position - 1);
             //Recebe holder com a view do item do recyclerView
-            holder.nome.setText(listaPostagem.get(inversePos).getNome());
-            holder.descricao.setText(listaPostagem.get(inversePos).getDescricao());
+            holder.nome.setText(p.getNome());
+            holder.descricao.setText(p.getDescricao());
             holder.data.setText("19/07/2019"); //data estática
 
-                UrlImageViewHelper.setUrlDrawable(holder.foto, listaPostagem.get(inversePos).getFotourl());
-        }
+            UrlImageViewHelper.setUrlDrawable(holder.foto, p.getFotourl());
     }
 
     @Override

@@ -1,37 +1,20 @@
 package com.example.postagensredesocial.helper;
 
-import android.content.Intent;
 import android.net.Uri;
-import android.provider.ContactsContract;
+import android.util.Log;
 
-import com.example.postagensredesocial.activity.MainActivity;
+import androidx.annotation.NonNull;
+
 import com.example.postagensredesocial.model.Postagem;
-import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
-
-import android.util.Log;
-import android.view.View;
-import android.widget.NumberPicker;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class DBHelper{ //classe que gerencia o DB.
     private DatabaseReference rootDBRef; //root do Realtime Database
@@ -41,7 +24,6 @@ public class DBHelper{ //classe que gerencia o DB.
     private StorageReference fotosStorageRef;
     private String fotoDownloadURL = null; //retornada quando faz upload de fotos
 
-    private ArrayList<Postagem> listaPostagens = new ArrayList<Postagem>();
     public DBHelper(){
         rootDBRef = FirebaseDatabase.getInstance().getReference();
         postagensDBRef = rootDBRef.child("postagens");
@@ -89,10 +71,6 @@ public class DBHelper{ //classe que gerencia o DB.
                         fotoDownloadURL = null;
                     }
                 });
-    }
-
-    public ArrayList<Postagem> getListaPostagens() {
-        return listaPostagens;
     }
 
     public DatabaseReference getPostagensDBRef() {
